@@ -1,0 +1,17 @@
+{
+  "name": "csvcombiner",
+  "version": "1.0.0",
+  "description": "Combines CSV files for PMG Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Eric Lieu",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  },
+  "dependencies": {
+    "git": "^0.1.5"
+  }
+}
