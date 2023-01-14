@@ -1,75 +1,103 @@
 var fs = require('fs'),
-path = require('path')
+    path = require('path')
+var headerAlreadyWritten = false;
 
-function writeToCombinedFile(line, fileName, firstFile = false)
-{
-    
-    
-    if (firstFile)
+const combineFiles = async (arrayOfFileNames) => {
+    if (arrayOfFileNames.length == 0)
     {
-        data = line + "," + "\"filename\"" 
-        console.log(data)
+        console.log("Error, no files selected.")
+        return;
     }
-    else 
+    for (const fileName of arrayOfFileNames)
     {
-        data = formatLine(line, fileName)
-        console.log(data)
-    }
-    
-}
-function formatLine(line, fileName)
-{
-    content = line.split(',');
-    if (content.length != 2)
-    {
-        throw new Error;
-    }
-    
-    const newLine = appendToCSVLine(line, "\"" + fileName + "\"")
-    
-    return newLine
-    
-}
-
-function appendToCSVLine(line, valueToAppend)
-{
-    line = line + "," + valueToAppend
-    return line
-}
-function readFileIntoLines(name)
-{
-    const readline = require('readline');
-
-    void (async () => {
-        const rl = readline.createInterface({
-        input: fs.createReadStream('accessories.csv'),
-        crlfDelay: Infinity,
-        });
-    
-    var isFirst = true
-    rl.on('line', (line) => {
-        if (isFirst)
+        if (fileName.substring(fileName.length - 4, fileName.length) != ".csv")
         {
-            writeToCombinedFile(line, "accessories.csv", true);
-            isFirst = !isFirst
+            console.log("Error, improper files.")
+            return;
         }
-        else {
-            writeToCombinedFile(line, "accessories.csv");
-        }
-    });
+    }
+    for (const fileName of arrayOfFileNames) {
+       
+        await readFileandWriteToOutputFile(fileName).then(
+            
+        )
+        .catch(error => {
+            console.log(`Error: ${error}`)
+        })
 
-    await new Promise((res) => rl.once('close', res));
+    }
 
- 
-    })();
 }
 
-const combineFiles = (arrayOfFileNames, outputFile) => {
+async function readFileandWriteToOutputFile(fileName) {
 
-   arrayOfFileNames.forEach(fileName => 
-    
-    readFileIntoLines(fileName))
- 
+    return new Promise((resolve, reject) => {
+        const readline = require('readline');
+        const rl = readline.createInterface({
+            input: fs.createReadStream(fileName),
+            crlfDelay: Infinity,
+        });
+
+        var isHeader = true
+        rl.on('line', (line) => {
+            try {
+                if (!isLineCorrectlyFormatted(line)) {
+                    throw new Error("Not correctly formatted.");
+                }
+                if (isHeader) {
+                    isHeader = !isHeader
+                    if (!headerAlreadyWritten) {
+                        data = formatHeader(line, fileName)
+                        writeToCombinedFile(data);
+                        headerAlreadyWritten = !headerAlreadyWritten
+                    }
+                }
+                else {
+                    data = formatLine(line, fileName)
+                    writeToCombinedFile(data);
+                }
+            }
+            catch (error)
+            {
+                reject(error);
+            }
+            
+        });
+
+        rl.on('close', function () {
+            resolve();
+        });
+        rl.on('error', function (error) {
+            reject(error);
+        });
+
+    })
+
+
 }
+function writeToCombinedFile(data) {
+    console.log(data)
+}
+function formatHeader(line) {
+    const newLine = `${line},\"fileName\"`
+    return newLine
+}
+function formatLine(line, fileName) {
+    const newLine = `${line},\"${fileName}\"`
+    return newLine
+}
+function isLineCorrectlyFormatted(line) {
+    lineSplit = line.split(',');
+    if (lineSplit.length != 2) {
+        return false
+    }
+    return true
+}
+
 
 exports.combineFiles = combineFiles
+exports.isLineCorrectlyFormatted = isLineCorrectlyFormatted
+exports.formatHeader = formatHeader
+exports.formatLine = formatLine
+exports.writeToCombinedFile = writeToCombinedFile
+exports.readFileandWriteToOutputFile = readFileandWriteToOutputFile
