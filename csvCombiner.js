@@ -3,25 +3,17 @@ path = require('path')
 
 function writeToCombinedFile(line, fileName, firstFile = false)
 {
-    console.log(firstFile)
-    data = formatLine(line, fileName)
+    
+    
     if (firstFile)
     {
-        data = line + "," + "\"filename\"" + "\n"
-        fs.appendFile('Output.csv', data, (err) => {
-          
-            // In case of a error throw err.
-            if (err) throw err;
-        })
+        data = line + "," + "\"filename\"" 
+        console.log(data)
     }
     else 
     {
         data = formatLine(line, fileName)
-        fs.appendFile('Output.csv', data, (err) => {
-          
-            // In case of a error throw err.
-            if (err) throw err;
-        })
+        console.log(data)
     }
     
 }
@@ -33,7 +25,7 @@ function formatLine(line, fileName)
         throw new Error;
     }
     
-    const newLine = appendToCSVLine(line, fileName)
+    const newLine = appendToCSVLine(line, "\"" + fileName + "\"")
     
     return newLine
     
@@ -41,7 +33,7 @@ function formatLine(line, fileName)
 
 function appendToCSVLine(line, valueToAppend)
 {
-    line = line + "," + valueToAppend + "\n"
+    line = line + "," + valueToAppend
     return line
 }
 function readFileIntoLines(name)
@@ -72,9 +64,12 @@ function readFileIntoLines(name)
     })();
 }
 
-const combineFiles = (a, b, c) => {
+const combineFiles = (arrayOfFileNames, outputFile) => {
 
-   readFileIntoLines("accessories.csv")
+   arrayOfFileNames.forEach(fileName => 
+    
+    readFileIntoLines(fileName))
+ 
 }
 
 exports.combineFiles = combineFiles

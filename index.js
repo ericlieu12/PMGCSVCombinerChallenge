@@ -1,8 +1,21 @@
 const csvCombiner = require('./csvCombiner')
-csvCombiner.combineFiles('','','')
-process.argv.forEach(function (val, index, array) {
-    console.log(index + ': ' + val);
+
+const fileNameArray = []
+var outputFile = ""
+var args = process.argv.slice(2);
+args.forEach(function (val, index) {
+
+  if (val == ">")
+  {
+    outputFile = args[index + 1]
+  }
+  else {
+    fileNameArray.push(val)
+  }
   });
+  csvCombiner.combineFiles(fileNameArray, outputFile)
+
+
 
 
 
