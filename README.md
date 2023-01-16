@@ -1,6 +1,6 @@
 # PMGCSVCombinerChallenge
 <h3> How To Setup: </h3>
-Download. <br>
+Pull code. <br>
 Make sure you have these installed: <br>
 <ul>
 <li>
