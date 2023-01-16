@@ -27,7 +27,7 @@ test('checks writing to line works', async () => {
   expect(logSpy).toHaveBeenCalledWith(testString);
 
 });
-test('checks combine file for 2 columns', async () => {
+test('checks combine file for files with 2 columns', async () => {
  
   const logSpy = jest.spyOn(console, 'log');
   await csvCombiner.combineFiles(["fixtures/smallsample.csv", "fixtures/smallsample2.csv"])
@@ -41,32 +41,41 @@ test('checks combine file for 2 columns', async () => {
  
 });
 
-test('checks combine file for 3 columns', async () => {
+test('checks combine file for files with 3 columns', async () => {
  
-  const logSpy3 = jest.spyOn(console, 'log');
+  const logSpy = jest.spyOn(console, 'log');
   await csvCombiner.combineFiles(["fixtures/smallsample3.csv", "fixtures/smallsample4.csv"])
 
-  await expect(logSpy3).toHaveBeenCalledWith(`"big","big2","big3","filename"`)
-  await expect(logSpy3).toHaveBeenCalledWith(`"b9f6f22276c919da793da65c76345ebb0b072257d12402107d09c89bc369a6b6","Blouses","test","smallsample3.csv"`)
-  await expect(logSpy3).toHaveBeenCalledWith(`"c2b5fa9e09ef2464a2b9ed7e351a5e1499823083c057913c6995fdf4335c73e7","Shirts","test","smallsample3.csv"`)
-  await expect(logSpy3).toHaveBeenCalledWith(`"b9f6f22276c919da793da65c76345ebb0b072257d12402107d09c89bc369a6b6","Blouses","t3est","smallsample4.csv"`)
-  await expect(logSpy3).toHaveBeenCalledWith(`"c2b5fa9e09ef2464a2b9ed7e351a5e1499823083c057913c6995fdf4335c73e7","Shirts","test2","smallsample4.csv"`)
+  await expect(logSpy).toHaveBeenCalledWith(`"big","big2","big3","filename"`)
+  await expect(logSpy).toHaveBeenCalledWith(`"b9f6f22276c919da793da65c76345ebb0b072257d12402107d09c89bc369a6b6","Blouses","test","smallsample3.csv"`)
+  await expect(logSpy).toHaveBeenCalledWith(`"c2b5fa9e09ef2464a2b9ed7e351a5e1499823083c057913c6995fdf4335c73e7","Shirts","test","smallsample3.csv"`)
+  await expect(logSpy).toHaveBeenCalledWith(`"b9f6f22276c919da793da65c76345ebb0b072257d12402107d09c89bc369a6b6","Blouses","t3est","smallsample4.csv"`)
+  await expect(logSpy).toHaveBeenCalledWith(`"c2b5fa9e09ef2464a2b9ed7e351a5e1499823083c057913c6995fdf4335c73e7","Shirts","test2","smallsample4.csv"`)
 
  
 });
 
-test('checks combine file for different columns', async () => {
+test('checks combine file where files have different columns', async () => {
  
-  const logSpy3 = jest.spyOn(console, 'log');
+  const logSpy = jest.spyOn(console, 'log');
   await csvCombiner.combineFiles(["fixtures/smallsample3.csv", "fixtures/smallsample2.csv"])
 
-  await expect(logSpy3).toHaveBeenCalledWith(`Error: Not correctly formatted. Stopping process now.`)
+  await expect(logSpy).toHaveBeenCalledWith(`Error: Not correctly formatted. Stopping process now.`)
   
 
  
 });
 
+test('checks combine file where files have same number of columns but different column names', async () => {
+ 
+  const logSpy = jest.spyOn(console, 'log');
+  await csvCombiner.combineFiles(["fixtures/smallsample2.csv", "fixtures/clothing.csv"])
 
+  await expect(logSpy).toHaveBeenCalledWith(`Error: Not the same header value. Stopping process now.`)
+  
+
+ 
+});
 
 test('improper file not submitted', async () => {
  
