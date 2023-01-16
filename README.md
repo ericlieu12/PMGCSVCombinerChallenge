@@ -36,7 +36,7 @@ The assessment is as follows: <br>
 <li>Each CSV file (found in the fixtures directory of this repo) will have the same columns</li>
 <li>It should also be able to handle more than two inputs, inputs with different columns, and very large (> 2GB) files gracefully.</li>
 </ol>
-Each CSV has the same columns but inputs can have different columns? This is not consistent with each other and the solution follows #1 and not #2 or a combination of either. ALL FILES INPUTTED MUST BE THE SAME COLUMN NAMES OR THE PROGRAM WILL TAKE THE FIRST FILE'S COLUMNS
+Each CSV has the same columns but inputs can have different columns? For my solution, I am assuming that different columns for the files is a user <b> error </b> and will be processed as an error.
 </b>
 <h3> Initial Thoughts: </h3>
 I wanted to provide a solution that closely resembles what I will be working on day to day at PMG. According to https://github.com/AgencyPMG/ProgrammingChallenges, the languages are as follows:
