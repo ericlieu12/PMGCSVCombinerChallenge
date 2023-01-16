@@ -192,7 +192,7 @@ These 3 unit tests test the functionality of the solution.
   </li>
   </ol>
 
-I believe these 7 unit tests should cover atleast 99% of the requirements and code to this solution.
+I believe these 7 unit tests should cover atleast 99% of the requirements and code to this solution. To test, run "npm run test"
 
 <h3> Struggles </h3>
 By far, the most absolute struggle was that I created a 2GB file to test with and that would not be pushed to GIT. Git would not take that large of a file and I had to reset the commits to fix this. That is why there is a gap in the Git commit
