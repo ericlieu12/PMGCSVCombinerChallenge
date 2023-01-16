@@ -132,6 +132,17 @@ used server-side and connected to another client that is not main. index.js can 
 </ol>
 
 <h3> Unit Tests </h3>
+These are the assumptions I made from the instructions:
+<ol>
+<li>
+All column names are the same when using this program (i.e. all files have the same header content)
+</li>
+<li> ./fixtures/accessories.csv ./fixtures/clothing.csv > combined.csv This is the appropriate way to handle arguments. Arguments are assumed to be relative paths
+</li>
+<li> All files are CSV </li>
+<li> All output files are CSV </li>
+</ol>
+
 I derived these unit tests from these use cases:
 <ol>
   <li> User calls the program but does not input any files </li>
@@ -172,37 +183,7 @@ These 3 unit tests test the functionality of the solution.
     Checks line formatted correctly (6)
   </li>
   </ol>
-From the instructions, these are the assumptions:
-<ol>
-<li>
-All column names are the same when using this program (i.e. all files have the same header content)
-</li>
-<li> ./fixtures/accessories.csv ./fixtures/clothing.csv > combined.csv This is the appropriate way to handle arguments. Arguments are assumed to be relative paths
-</li>
-<li> All files are CSV </li>
-<li> All output files are CSV </li>
-</ol>
-With this, I came up with 7 unit tests that should encompass the entire function.
-<ol>
-<li>
-Format header properly
-</li>
-<li>
-Format line properly
-</li>
-<li>
-Input file has lines that are correctly formatted
-</li>
-<li>
-Writing to output file works
-</li>
-<li>
-Combining files works
-</li>
-<li>
-Improper files are captured and returned with an error
-</li>
-</ol>
+
 I believe these 7 unit tests should cover atleast 99% of the requirements and code to this solution.
 
 <h3> Struggles </h3>
