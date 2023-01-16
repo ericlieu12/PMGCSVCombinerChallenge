@@ -148,24 +148,28 @@ These 3 unit tests test the functionality of the solution.
   <li> Formats Line Correctly </li>
   <li> Checks writing to output file works correctly </li>
   </ol>
+  And these test the use cases.
   <ol> 
   <li>
-    Checks combine files for files with 2 columns
+    Checks combine files for files with 2 columns (2)
   </li>
   <li>
-    Checks combine files for files with 3 columns
+    Checks combine files for files with 3 columns (2)
   </li>
   <li>
-    Checks combine files where files have different columns
+    Checks combine files where files have different columns (4)
   </li>
   <li>
-   checks combine file where files have same number of columns but different column names
+   checks combine file where files have same number of columns but different header names (2)
   </li>
   <li>
-    Improper file handled correctly
+    Improper file handled correctly (5)
   </li>
   <li>
-    No submission file handled correctly
+    No submission file handled correctly (1)
+  </li>
+   <li>
+    Checks line formatted correctly (6)
   </li>
   </ol>
 From the instructions, these are the assumptions:
