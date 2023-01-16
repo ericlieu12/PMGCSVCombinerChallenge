@@ -189,22 +189,43 @@ I believe these 7 unit tests should cover atleast 99% of the requirements and co
 <h3> Struggles </h3>
 By far, the most absolute struggle was that I created a 2GB file to test with and that would not be pushed to GIT. Git would not take that large of a file and I had to reset the commits to fix this. That is why there is a gap in the Git commit
 history where 4 commits were squashed together into one.
-<h3> Additional Test Cases </h3>
-I created two three csv files to fit the requriements of the program:
+
+This was also my first time using readStreams in Node and there were some nuances that I was not able to fully understand at first. For example, the readstream will buffer a few lines which will continue to be read and listened to even AFTER the readstream is closed/emitted an error.
+
+<h3> Test Cases </h3>
+I created four csv files to fit the requriements of the program:
 <br> <b> It should also be able to handle more than two inputs, inputs with different columns, and very large (> 2GB) files gracefully. </b>
 
 These files: <br>
 <ol>
 <li>
-smallsample.csv has different column names than the ones provided with the problem (to test inputs with different columns)
+smallsample.csv has different column names than the ones provided with the problem (to test inputs with different columns) but has 2 columns like the ones provided in the problem
 </li>
 <li>
-smallsample2.csv has different column names than the ones provided with the problem (to test inputs with different columns) additionally
+smallsample2.csv has different column names than the ones provided with the problem (to test inputs with different columns) but has 2 columns like the ones provided in the problem. The headers are identitcal to smallsample.csv.
+</li>
+<li>
+smallsample3.csv has three columns 
+</li>
+<li>
+smallsample4.csv has three columns and the headers are identical to smallsample3.csv
 </li>
 <li>
 veryLargeFile.csv is 2.5GB and was handled gracefully (could not push to git due to size)
 </li>
 </ol>
+With this and the ones provided in the problem, I derived several test cases with test outputs in the testCaseOutputs folder:
+<ol>
+<li> accessories.csv + clothing.csv (shown in the problem) </li>
+<li> accessories.csv + clothing.csv + household_cleaners.csv (testing 3 files) </li>
+<li> accessories.csv (testing one file) </li>
+<li> accessories.csv + smallsample.csv (testing files with different header names but same number of columns) </li>
+<li> smallsample.csv + smallsample2.csv (testing files with different headers than the problem provided) </li>
+<li> smallsample3.csv + smallsample4.csv (testing files with 3 columns) </li>
+<li> smallsample3.csv (testing one file with 3 columns </li>
+</ol>
+These test cases, along with the unit tests, should cover all t he requirements of the problem. Intuitively, if the program works with 2 column and 3 column files, it would work with 4,5,6,etc. Same with header names.
 <h3> Additional Considerations </h3>
 By far, the most absolute struggle was that I created a 2GB file to test with and that would not be pushed to GIT. Git would not take that large of a file and I had to reset the commits to fix this. That is why there is a gap in the Git commit
 history where 4 commits were squashed together into one.
+If there were any questions with my solution, I would be glad to go over them. ericlieu118@gmail.com
