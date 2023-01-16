@@ -19,7 +19,7 @@ Run “npm install” on the terminal to get all node modules
 <li>
 Make sure setup is done correctly </li>
 <li> On the terminal, type: “node index.js (inputFiles relative path) > (outputFile relative path) <br>
-  For example, to combine “accessories.csv” and “clothing.csv” into “output.csv”, the command would be “node index.js accessories.csv clothing.csv > output.csv” assuming that all of them are in the same directory
+  For example, to combine “accessories.csv” and “clothing.csv” into “output.csv”, and the inputs are in a folder called "fixtures" in the same directory the command would be “node index.js fixtures/accessories.csv fixtures/clothing.csv > output.csv” assuming that all of them are in the same directory
 </li> <li>Done</li>
 
 </ol>
