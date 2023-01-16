@@ -132,7 +132,42 @@ used server-side and connected to another client that is not main. index.js can 
 </ol>
 
 <h3> Unit Tests </h3>
-There are seven unit tests that cover almost the entirety of the use cases for this program.
+I derived these unit tests from these use cases:
+<ol>
+  <li> User calls the program but does not input any files </li>
+  <li> User calls the program and inputs x .csv files with the same amount of columns and the same header values </li>
+  <li> User calls the program and inputs x .csv files with the same amount of columns but different header values </li>
+  <li> User calls the program and inputs x .csv files with different amount of columns and different header values </li>
+  <li> User calls the program and inputs x files that are not .csv </li>
+  <li> User calls the program and inputs x .csv files with the same amount of columns and the same header values but one of the lines is not formatted properly </li>
+  </ol>
+With these, I made 10 unit tests.
+These 3 unit tests test the functionality of the solution.
+<ol>
+  <li> Formats Header Correctly </li>
+  <li> Formats Line Correctly </li>
+  <li> Checks writing to output file works correctly </li>
+  </ol>
+  <ol> 
+  <li>
+    Checks combine files for files with 2 columns
+  </li>
+  <li>
+    Checks combine files for files with 3 columns
+  </li>
+  <li>
+    Checks combine files where files have different columns
+  </li>
+  <li>
+   checks combine file where files have same number of columns but different column names
+  </li>
+  <li>
+    Improper file handled correctly
+  </li>
+  <li>
+    No submission file handled correctly
+  </li>
+  </ol>
 From the instructions, these are the assumptions:
 <ol>
 <li>
