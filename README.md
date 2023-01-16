@@ -1,6 +1,6 @@
 # PMGCSVCombinerChallenge
 <h3> How To Setup: </h3>
-Pull code. <br>
+Clone code. <br>
 Make sure you have these installed: <br>
 <ul>
 <li>
@@ -19,9 +19,17 @@ Run “npm install” on the terminal to get all node modules
 <li>
 Make sure setup is done correctly </li>
 <li> On the terminal, type: “node index.js (inputFiles relative path) > (outputFile relative path) <br>
-  For example, to combine “accessories.csv” and “clothing.csv” into “output.csv”, and the inputs are in a folder called "fixtures" in the same directory the command would be “node index.js fixtures/accessories.csv fixtures/clothing.csv > output.csv” assuming that all of them are in the same directory
+  For example, to combine “accessories.csv” and “clothing.csv” into “output.csv”, and the inputs are in a folder called "fixtures" in the same directory the command would be “node index.js fixtures/accessories.csv fixtures/clothing.csv > output.csv”
 </li> <li>Done</li>
 
+</ol>
+
+<h3> Sample Run After Cloning </h3>
+<ol>
+<li> Type into terminal: cd PATHTOCLONE </li>
+This should ensure you are in the project 
+<li> Type into terminal: node index.js fixtures/accessories.csv fixtures/clothing.csv > output.csv </li>
+<li> Check output.csv, should have your contents </li>
 </ol>
 <h3> Introduction:  </h3>
 This is a solution for PMG’s Graduate Leadership Program’s technical assessment. <br>
