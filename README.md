@@ -235,5 +235,6 @@ With this and the ones provided in the problem, I derived several test cases wit
 These test cases, along with the unit tests, should cover all t he requirements of the problem. Intuitively, if the program works with 2 column and 3 column files, it would work with 4,5,6,etc. Same with header names.
 <h3> Additional Considerations </h3>
 By far, the most absolute struggle was that I created a 2GB file to test with and that would not be pushed to GIT. Git would not take that large of a file and I had to reset the commits to fix this. That is why there is a gap in the Git commit
-history where 4 commits were squashed together into one.
+history where 4 commits were squashed together into one. <br>
+There are not too many but not too little comments in the code. I did not want to clutter the code with comments but I also did not want to leave no comments on the code. The code should be easy to understand from the function calls and methods.
 If there were any questions with my solution, I would be glad to go over them. ericlieu118@gmail.com
