@@ -139,6 +139,11 @@ used server-side and connected to another client that is not main. index.js can 
 <li> Unit tests are included </li>
 </ol>
 
+<h3> Module Logic </h3>
+Attached is the module logic for the program.
+<br/>
+![FlowChart](https://user-images.githubusercontent.com/38592426/213722547-a9c427ad-4a5c-4c48-8436-f4631aa74fed.PNG)
+
 <h3> Unit Tests </h3>
 These are the assumptions I made from the instructions:
 <ol>
